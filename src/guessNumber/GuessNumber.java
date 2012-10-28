@@ -9,9 +9,12 @@ public class GuessNumber {
     }
 
     public String validate(String userInput) {
-        if(userInput.equals(randomNumber)){
-            return "4a0b";
+        int count_a=0;
+        int count_b=0;
+        for(int i=0;i<userInput.length();i++){
+            if(userInput.charAt(i)==randomNumber.charAt(i)) count_a++;
+            else if(randomNumber.contains(String.valueOf(userInput.charAt(i)))) count_b++;
         }
-        return "3a0b";
+        return String.format("%da%db",count_a,count_b);
     }
 }
